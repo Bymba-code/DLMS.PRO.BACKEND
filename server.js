@@ -1,0 +1,68 @@
+const express = require("express")
+require("dotenv").config()
+const cors = require("cors")
+
+const cookieParser = require("cookie-parser")
+const courseRoute = require("./routes/1. Course")
+const courseLimitRoute = require("./routes/2. CourseLimit")
+const courseSystemRentalRoute = require("./routes/3. CourseSystemRental")
+const courseListRoute = require("./routes/4. CourseList")
+const courseImageRoute = require("./routes/5. CourseImages")
+const courseCategoryRoute = require("./routes/6. CourseCategory")
+const courseUserRoute = require("./routes/7. CourseUsers")
+const courseStudentRoute = require("./routes/8. CourseStudent")
+const courseStudentCategoryRoute = require("./routes/9. CourseStudentCategory")
+const courseStudentCategoryInvoiceRoute = require("./routes/10. CourseStudentCategoryInvoice")
+const categoryRoute = require("./routes/11. Category")
+const topicRoute = require("./routes/12. Topic")
+const testRoute = require("./routes/13. Test")
+const testAnswerRoute = require("./routes/14. TestAnswers")
+const examRoute = require("./routes/15. Exam")
+const studentTopicProgressRoute = require("./routes/16. StudentTopicProgress")
+const scheduleRoute = require("./routes/17. Schedule")
+const teacherRoute = require("./routes/18. Teacher")
+const studentScheduleRoute = require("./routes/19. StudentSchedule")
+const carsRoute = require("./routes/20. Cars")
+const drivingScheduleRoute = require("./routes/21. DrivingSchedule")
+const studentDrivingScheduleRoute = require("./routes/22. StudentDrivingSchedule")
+const messageRoute = require("./routes/23. Messages")
+
+const app = express()
+
+app.use(cors({
+  origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:5176"],
+  credentials: true
+}));
+
+app.use(cookieParser())
+app.use(express.json())
+
+app.use(process.env.API_VERSION, courseRoute)
+app.use(process.env.API_VERSION, courseLimitRoute)
+app.use(process.env.API_VERSION, courseSystemRentalRoute)
+app.use(process.env.API_VERSION, courseListRoute)
+app.use(process.env.API_VERSION, courseImageRoute)
+app.use(process.env.API_VERSION, courseCategoryRoute)
+app.use(process.env.API_VERSION, courseUserRoute)
+app.use(process.env.API_VERSION, courseStudentRoute)
+app.use(process.env.API_VERSION, courseStudentCategoryRoute)
+app.use(process.env.API_VERSION, courseStudentCategoryInvoiceRoute)
+app.use(process.env.API_VERSION, categoryRoute)
+app.use(process.env.API_VERSION, topicRoute)
+app.use(process.env.API_VERSION, testRoute)
+app.use(process.env.API_VERSION, testAnswerRoute)
+app.use(process.env.API_VERSION, examRoute)
+app.use(process.env.API_VERSION, studentTopicProgressRoute)
+app.use(process.env.API_VERSION, scheduleRoute)
+app.use(process.env.API_VERSION, teacherRoute)
+app.use(process.env.API_VERSION, studentScheduleRoute)
+app.use(process.env.API_VERSION, carsRoute)
+app.use(process.env.API_VERSION, drivingScheduleRoute)
+app.use(process.env.API_VERSION, studentDrivingScheduleRoute)
+app.use(process.env.API_VERSION, messageRoute)
+
+app.use('/uploads', express.static('uploads'));
+
+app.listen(process.env.PORT, () => {
+    console.log("APP LISTENING: " + " " + process.env.PORT)
+})
