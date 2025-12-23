@@ -60,7 +60,7 @@ const LOGIN_STUDENT = async (req, res) => {
 
     res.cookie("STUDENT_ELEMENT_TKN", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production", 
+      secure: true, 
       sameSite: "none",
       maxAge: 7 * 24 * 60 * 60 * 1000 
     });
@@ -85,3 +85,4 @@ const LOGIN_STUDENT = async (req, res) => {
 
 
 module.exports = LOGIN_STUDENT;
+
