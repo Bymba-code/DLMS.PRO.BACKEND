@@ -30,7 +30,7 @@ const messageRoute = require("./routes/23. Messages")
 const app = express()
 
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:5176", "https://student.dlms.pro", "http://student.dlms.pro", "https://system.dlms.pro", "http://system.dlms.pro", "https://teacher.dlms.pro", "http://teacher.dlms.pro", "https://autoshools.dlms.pro"],
+  origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:5176", "https://student.dlms.pro", "http://student.dlms.pro", "https://system.dlms.pro", "http://system.dlms.pro", "https://teacher.dlms.pro", "http://teacher.dlms.pro", "https://autoschools.dlms.pro"],
   credentials: true
 }));
 
