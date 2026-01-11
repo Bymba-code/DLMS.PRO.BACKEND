@@ -26,11 +26,12 @@ const carsRoute = require("./routes/20. Cars")
 const drivingScheduleRoute = require("./routes/21. DrivingSchedule")
 const studentDrivingScheduleRoute = require("./routes/22. StudentDrivingSchedule")
 const messageRoute = require("./routes/23. Messages")
+const creatorRoute = require("./routes/24. Creators")
 
 const app = express()
 
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:5176", "https://student.dlms.pro", "http://student.dlms.pro", "https://system.dlms.pro", "http://system.dlms.pro", "https://teacher.dlms.pro", "http://teacher.dlms.pro", "https://autoschools.dlms.pro", "https://spanel.dlms.pro"],
+  origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:5176", "https://student.dlms.pro", "http://student.dlms.pro", "https://system.dlms.pro", "http://system.dlms.pro", "https://teacher.dlms.pro", "http://teacher.dlms.pro", "https://autoschools.dlms.pro", "https://spanel.dlms.pro", "http://localhost:5000"],
   credentials: true
 }));
 
@@ -60,6 +61,7 @@ app.use(process.env.API_VERSION, carsRoute)
 app.use(process.env.API_VERSION, drivingScheduleRoute)
 app.use(process.env.API_VERSION, studentDrivingScheduleRoute)
 app.use(process.env.API_VERSION, messageRoute)
+app.use(process.env.API_VERSION, creatorRoute)
 
 app.use('/uploads', express.static('uploads'));
 
